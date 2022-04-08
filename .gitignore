@@ -1,7 +1,7 @@
 # Build and Release Folders
+dist/
 node_modules/
 .DS_Store
-package-lock.json
 .idea/
 
 # Other files and folders
