@@ -1,0 +1,38 @@
+{
+	"beautify.language": {
+		"js": {
+			"type": ["javascript", "json"],
+			"ext": ["js", "json"]
+		},
+		"css": ["css", "scss","less"],
+		"html": ["htm", "html"]
+	},
+	"indent_with_tabs": true,
+	"indent_char": " ",
+	"indent_size": 4,
+	"max_preserve_newlines": 1,
+	"preserve_newlines": false,
+	"keep_array_indentation": true,
+	"break_chained_methods": true,
+	"wrap_line_length": 80,
+    "wrap_attributes":"preserve",
+	"end_with_newline": true,
+    "extra_liners" : ["input"],
+	"brace_style": "collapse,preserve-inline",
+	"unformatted": ["a", "abbr", "area", "audio", "b", "bdi", "bdo", "br",
+		"canvas", "cite", "code", "data",
+          "datalist", "del", "dfn", "em", "embed", "i", "iframe", "img", "input",
+		"ins", "kbd", "keygen", "map", "span",
+          "mark", "math", "meter", "noscript", "object", "output", "progress", "q",
+		"ruby", "s", "samp", "select", "small", "strong", "sub", "sup", "template", "time", "u", "var", "video",
+		"wbr", "text", "acronym",
+          "address", "big", "dt", "ins", "small", "strike", "tt", "pre"],
+	"css": {
+		"indent_size": 2
+	},
+	"js":{
+		"indent_with_tabs": true,
+		"indent_char": " ",
+		"indent_size": 4
+	}
+}
