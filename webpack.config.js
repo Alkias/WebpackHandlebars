@@ -21,7 +21,11 @@ module.exports = {
   },
 
   plugins: [
-    new HTMLWebpackPlugin(),
+    new HTMLWebpackPlugin({
+      title: "Test App", 
+      template: "./src/index.html", //handlebar file 
+      filename: 'index.html'
+    }),
     new CleanWebpackPlugin(
       {
         cleanOnceBeforeBuildPatterns: ['**/*', path.join(process.cwd(), 'extra/**/*')]
