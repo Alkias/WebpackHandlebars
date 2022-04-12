@@ -1,10 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require("webpack");
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-TerserPlugin = require('terser-webpack-plugin');
-//const autoprefixer = require('autoprefixer');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: "./src/app.js",
@@ -37,7 +34,7 @@ module.exports = {
       },
 
       {
-        test: /\.s?[ac]ss$/i,
+        test: /\.s[ac]ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -49,7 +46,15 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
+              autoprefixer: {
+                browsers: [
+                  'last 2 verions'
+                ]
+              },
               sourceMap: true,
+              plugins: () => {
+                autoprefixer
+              }
             }
           },
           {
@@ -73,7 +78,7 @@ module.exports = {
   },
 
   plugins: [
-    new HtmlWebpackPlugin({
+    new HTMLWebpackPlugin({
       title: "Test App",
       template: "./src/index.html", //handlebar file 
       filename: 'index.html'
@@ -91,20 +96,4 @@ module.exports = {
     })
   ],
 
-  optimization: {
-    minimize: true,
-    minimizer: [
-      new TerserPlugin({
-        extractComments: false, // prevents TerserPlugin from extracting a [chunkName].js.LICENSE.txt file
-        terserOptions: {
-          format: {
-            // Tell terser to remove all comments except for the banner added via LicenseWebpackPlugin.
-            // This can be customized further to allow other types of comments to show up in the final js file as well.
-            // See the terser documentation for format.comments options for more details.
-            comments: (astNode, comment) => (comment.value.startsWith('! licenses are at '))
-          }
-        }
-      })
-    ]
-  }
 };
