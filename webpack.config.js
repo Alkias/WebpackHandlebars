@@ -27,6 +27,7 @@ module.exports = {
         test: /\.handlebars$/,
         loader: "handlebars-loader",
         options: {
+          inlineRequires: "/img/",
           helperDirs: [
             path.join(__dirname, 'src', 'helpers')
           ],
@@ -67,7 +68,8 @@ module.exports = {
 
       {
         test: /\.(png|jpg|gif)$/,
-        type: 'asset/resource'
+        type: 'asset/resource',
+        use: [ "file-loader?name=images/[name].[ext]" ] 
       },
     ]
   },
